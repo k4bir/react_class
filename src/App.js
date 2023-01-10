@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Feedback from "./components/feedback";
 
-function App() {
+function App(props) {
+  const { name, age } = props;
+  const [counter, setCounter] = useState(0);
+  // let count = 1;
+  // setTimeout(() => setCounter(counter + 1), 1000);
+  const handleclick = () => setCounter(counter + 1);
+  const handleclick1 = () => setCounter(0);
+  const handleclick2 = () => setCounter(counter - 1);
+  console.log(`rendering ${counter}`);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>
+        Hello warld {name}, you are {age} years old
+      </h1>
+      <h2>mero world yeta xaina </h2>
+      <h3>{counter}</h3>
+      <button onClick={handleclick}>Plus</button>
+      <button onClick={handleclick1}>Reset</button>
+      <button onClick={handleclick2}>Minus</button>
+      <hr />
+      <Feedback />
+    </>
   );
 }
 
